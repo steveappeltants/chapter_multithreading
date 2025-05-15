@@ -13,9 +13,16 @@ public class WorkerThread extends Thread {
 
 	public static void main(String[] args) {
 		WorkerThread workerThread = new WorkerThread();
-		workerThread.start();
+		workerThread.start(); // !! once a Thread is start/terminated, you need to renew the object again.
 		System.out.println("Line 1 (" + Thread.currentThread().getName() + ")");
 		System.out.println("Line 2 (" + Thread.currentThread().getName() + ")");
 		System.out.println("Line 3 (" + Thread.currentThread().getName() + ")");
+		try {
+			workerThread.join();
+		} catch (InterruptedException e) {
+			throw new RuntimeException(e);
+		}
+		System.out.println(workerThread.getState());
+//		workerThread.start(); // !! once a Thread is start/terminated, you need to renew the object again.
 	}
 }

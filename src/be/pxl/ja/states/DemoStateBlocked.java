@@ -17,6 +17,7 @@ public class DemoStateBlocked extends Thread {
 		System.out.println(parent.getState());
 	}
 
+	// CommonResource will ensure that t1 will be executed and t2 blocked until t1 is done.
 	private static synchronized void commonResource() {
 		for (int i = 0; i < 100; i++) {
 			value++;
@@ -34,7 +35,7 @@ public class DemoStateBlocked extends Thread {
 		Thread t2 = new DemoStateBlocked(Thread.currentThread());
 		t1.start();
 		t2.start();
-		Thread.sleep(2);
+		Thread.sleep(2);  // according to the static main -> no use of this.sleep(2)
 		System.out.printf("%n%s %s%n", t1.getState(), t2.getState());
 		t2.join();
 	}
