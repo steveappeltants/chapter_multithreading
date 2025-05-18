@@ -1,4 +1,4 @@
-package be.pxl.ja.oefening8_2;
+package be.pxl.ja.oefening2;
 
 import java.util.ArrayList;
 import java.util.List;

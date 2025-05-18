@@ -1,4 +1,4 @@
-package be.pxl.ja.oefening8_1;
+package be.pxl.ja.oefening1;
 
 // changed extends Thread into implements Runnable
 public class Talker implements Runnable{
